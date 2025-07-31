@@ -1,11 +1,10 @@
-const express = require('express')
-const router = express.Router()
+import express from "express";
+import { login, dashboard } from "../controllers/main.js";
+import authMiddleware from "../middleware/auth.js";
 
-const { login, dashboard } = require('../controllers/main')
+const router = express.Router();
 
-const authMiddleware = require('../middleware/auth')
+router.route("/dashboard").get(authMiddleware, dashboard);
+router.route("/login").post(login);
 
-router.route('/dashboard').get(authMiddleware, dashboard)
-router.route('/login').post(login)
-
-module.exports = router
+export default router;
