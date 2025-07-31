@@ -1,21 +1,21 @@
-require('dotenv').config()
+import dotenv from "dotenv";
+import connectDB from "./db/connect.js";
+import Product from "./models/product.js";
+import jsonProducts from "./products.json" assert { type: "json" };
 
-const connectDB = require('./db/connect')
-const Product = require('./models/product')
-
-const jsonProducts = require('./products.json')
+dotenv.config();
 
 const start = async () => {
   try {
-    await connectDB(process.env.MONGO_URI)
-    await Product.deleteMany()
-    await Product.create(jsonProducts)
-    console.log('Success!!!!')
-    process.exit(0)
+    await connectDB(process.env.MONGO_URI);
+    await Product.deleteMany();
+    await Product.create(jsonProducts);
+    console.log("Success!!!!");
+    process.exit(0);
   } catch (error) {
-    console.log(error)
-    process.exit(1)
+    console.log(error);
+    process.exit(1);
   }
-}
+};
 
-start()
+start();
