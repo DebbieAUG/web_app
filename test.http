@@ -1,8 +1,8 @@
-# GET http://localhost:5000/api/v1/dashboard
+GET http://localhost:5000/api/v1/dashboard
 
-POST http://localhost:5000/api/v1/login
+# POST http://localhost:5000/api/v1/login
 
-{
-    "username": "john.doe@gmail.com",
-    "password": "secret"
-}
+# {
+#     "username": "john.doe@gmail.com",
+#     "password": "secret"
+# }
